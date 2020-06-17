@@ -10,9 +10,9 @@ with open('randomNames.txt', encoding='utf-8') as fl: namesList = [line.strip() 
 '''
 def f(namesList, N):
     '''
-    :param1: список имен
+    :param1: базовый список имен
     :param2: количество элементов в списке имен
-    :return: список имен запрашиваемой длины (N)
+    :return: генерируемый список имен длины (N) из базового
 
     '''
     return [choice(namesList) for _ in range(N)]
@@ -64,7 +64,6 @@ print(firstInfreqLetter)
 
 pattern = re.compile('\d\d:\d\d:\d\d')
 maxTime = ''
-timeLine = ''
 
 with open('log') as fl:
     for idx, line in enumerate(fl):
