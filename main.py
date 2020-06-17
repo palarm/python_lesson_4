@@ -14,7 +14,7 @@ with open('randomNames.txt', encoding='utf-8') as fl: namesList = [line.strip() 
 def f(namesList, N):
     '''
     :param1: список имен
-    :param2: длина списка имен
+    :param2: количество элементов в списке имен
     :return: список имен запрашиваемой длины (N)
 
     '''
@@ -67,13 +67,14 @@ print(firstInfreqLetter)
 
 pattern = re.compile('\d\d:\d\d:\d\d')
 maxTime = ''
-dateLine = 0
+dateLine = ''
 # print(pattern.findall(line))
 with open('log') as fl:
     for idx, line in enumerate(fl):
-        if maxTime < max(pattern.findall(line)):
-            maxTime = max(pattern.findall(line))
+
+        if maxTime < pattern.findall(line)[0]:
+            maxTime = pattern.findall(line)[0]
             dateLine = line
-            # print(dateLine)
+        #     # print(dateLine)
     # fl.readline(dateLine)
 print(dateLine[:10])
