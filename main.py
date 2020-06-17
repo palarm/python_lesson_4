@@ -1,7 +1,4 @@
 from random import choice
-import string
-import itertools
-import operator
 from collections import Counter
 import re
 
@@ -67,14 +64,14 @@ print(firstInfreqLetter)
 
 pattern = re.compile('\d\d:\d\d:\d\d')
 maxTime = ''
-dateLine = ''
-# print(pattern.findall(line))
+timeLine = ''
+
 with open('log') as fl:
     for idx, line in enumerate(fl):
-
-        if maxTime < pattern.findall(line)[0]:
-            maxTime = pattern.findall(line)[0]
+        timeLine = pattern.findall(line)[0]
+        if maxTime < timeLine:
+            maxTime = timeLine
             dateLine = line
-        #     # print(dateLine)
-    # fl.readline(dateLine)
+
+
 print(dateLine[:10])
