@@ -1,5 +1,6 @@
 from random import choice
 from collections import Counter
+from datetime import datetime, time
 import re
 
 # воспользовался текстовым файлом с именами из другой задачи
@@ -72,5 +73,13 @@ with open('log') as fl:
             maxTime = timeLine
             dateLine = line
 
+# # строка
+# print(dateLine[:19])
 
-print(dateLine[:10])
+# дата-время
+print(datetime.strptime(dateLine[:19],'%Y-%m-%d %H:%M:%S'))
+
+
+
+
+# 2018-10-12 23:31:01
