@@ -62,24 +62,24 @@ print(firstInfreqLetter)
 '''
 4.  В файле с логами найти дату самого позднего лога (по метке времени)
 '''
+# # Вариант 1 (ищет самое позднее время в логе и возвращает дату-время в формате <дата-время> )
+#
+# pattern = re.compile('\d\d:\d\d:\d\d')
+# maxTime = ''
+#
+# with open('log') as fl:
+#     for idx, line in enumerate(fl):
+#         timeLine = pattern.findall(line)[0]
+#         if maxTime < timeLine:
+#             maxTime = timeLine
+#             dateLine = line
+#
+# # # строка
+# # print(dateLine[:19])
+#
+# # дата-время
+# print(datetime.strptime(dateLine[:19],'%Y-%m-%d %H:%M:%S'))
 
-pattern = re.compile('\d\d:\d\d:\d\d')
-maxTime = ''
+# Вариант 2 (ищет самую позднюю дату в логе и возвращает дату-время в формате <строка>)
 
-with open('log') as fl:
-    for idx, line in enumerate(fl):
-        timeLine = pattern.findall(line)[0]
-        if maxTime < timeLine:
-            maxTime = timeLine
-            dateLine = line
-
-# # строка
-# print(dateLine[:19])
-
-# дата-время
-print(datetime.strptime(dateLine[:19],'%Y-%m-%d %H:%M:%S'))
-
-
-
-
-# 2018-10-12 23:31:01
+with open('log') as fl: print(max(line[:19] for line in fl))
